@@ -6,8 +6,8 @@ namespace AdventOfCode.Days
 {
     internal class DayThree : DayBase
     {
-        private Dictionary<Location, House> map;
         private readonly bool santaAlone;
+        private readonly Dictionary<Location, House> map;
 
         public DayThree(bool isSantaAlone = true)
         {
@@ -21,11 +21,11 @@ namespace AdventOfCode.Days
             var santaPosition = startLocation;
             var roboSantaPosition = startLocation;
 
-            for (int index = 0; index < this.InputFile.Length; index++)
+            for (var index = 0; index < this.InputFile.Length; index++)
             {
                 santaPosition = this.PresentDelivery(santaPosition, this.InputFile[index]);
 
-                if(this.santaAlone) continue;
+                if (this.santaAlone) { continue; }
 
                 roboSantaPosition = this.PresentDelivery(roboSantaPosition, this.InputFile[++index]);
             }
@@ -52,10 +52,14 @@ namespace AdventOfCode.Days
         {
             switch (move)
             {
-                case '^': return new Location(current.X, current.Y + 1);
-                case 'v': return new Location(current.X, current.Y - 1);
-                case '>': return new Location(current.X + 1, current.Y);
-                case '<': return new Location(current.X - 1, current.Y);
+                case '^':
+                    return new Location(current.X, current.Y + 1);
+                case 'v':
+                    return new Location(current.X, current.Y - 1);
+                case '>':
+                    return new Location(current.X + 1, current.Y);
+                case '<':
+                    return new Location(current.X - 1, current.Y);
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -63,18 +67,18 @@ namespace AdventOfCode.Days
 
         private class House
         {
-            public int VisitCount { get; set; }
-
             public House()
             {
                 this.VisitCount = 1;
             }
+
+            public int VisitCount { get; set; }
         }
 
         private struct Location : IComparable<Location>
         {
-            public int X { get; set; }
-            public int Y { get; set; }
+            public int X { get; }
+            public int Y { get; }
 
             public Location(int x, int y)
             {
@@ -87,10 +91,14 @@ namespace AdventOfCode.Days
             public int CompareTo(Location other)
             {
                 if (this.X == other.X && this.Y == other.Y)
+                {
                     return 0;
+                }
 
                 if (this.Y > other.Y)
+                {
                     return 1;
+                }
                 return -1;
             }
 

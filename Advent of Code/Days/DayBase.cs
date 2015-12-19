@@ -15,11 +15,11 @@ namespace AdventOfCode.Days
             }
         }
 
-        public abstract void Run();
-
         void IRunner.Run()
         {
             this.Run();
         }
+
+        public abstract void Run();
     }
 }

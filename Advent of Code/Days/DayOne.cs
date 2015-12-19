@@ -4,7 +4,6 @@ namespace AdventOfCode.Days
 {
     public class DayOne : DayBase
     {
-
         public override void Run()
         {
             var output = this.WhichFloor(this.InputFile);
@@ -13,14 +12,15 @@ namespace AdventOfCode.Days
 
         private Tuple<int, int> WhichFloor(string input)
         {
-            int floor = 0;
-            int position = 0;
-            bool basementReached = false;
+            var floor = 0;
+            var position = 0;
+            var basementReached = false;
 
             foreach (var @char in input)
             {
-                if (@char == '(') floor++;
-                else floor--;
+                if (@char == '(') { floor++; }
+                else
+                { floor--; }
 
                 if (!basementReached)
                 {

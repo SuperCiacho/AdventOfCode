@@ -3,9 +3,9 @@ using AdventOfCode.Days;
 
 namespace AdventOfCode
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // http://adventofcode.com/
             IRunner codeDay;
@@ -13,8 +13,8 @@ namespace AdventOfCode
             // codeDay = new DayTwo();
             // codeDay = new DayThree();
             // codeDay = new DayFour();
-             codeDay = new DayFive();
-            //codeDay = new DaySix();
+            // codeDay = new DayFive();
+            codeDay = new DaySix();
 
             codeDay.Run();
             Console.ReadLine();

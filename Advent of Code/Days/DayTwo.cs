@@ -1,7 +1,4 @@
-﻿// Training Ground
-// Createad by Bartosz Nowak on 14/12/2015 18:52
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,7 +49,7 @@ namespace AdventOfCode.Days
 
             private Tuple<int, int> GetTwoSmallestDimensions()
             {
-                var dims = new List<int>(3) { this.Length, this.Width, this.Height };
+                var dims = new List<int>(3) {this.Length, this.Width, this.Height};
                 dims.Sort();
 
                 return new Tuple<int, int>(dims[0], dims[1]);
@@ -61,9 +58,9 @@ namespace AdventOfCode.Days
             public int GetRibbonLength()
             {
                 var dims = this.GetTwoSmallestDimensions();
-                return (2 * dims.Item1) +
-                       (2 * dims.Item2) +
-                       (this.Length * this.Width * this.Height);
+                return 2 * dims.Item1 +
+                       2 * dims.Item2 +
+                       this.Length * this.Width * this.Height;
             }
         }
     }

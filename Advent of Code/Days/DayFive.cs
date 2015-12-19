@@ -1,15 +1,12 @@
-﻿// Training Ground
-// Createad by Bartosz Nowak on 18/12/2015 17:26
-
-using System;
+﻿using System;
 using System.Linq;
 
 namespace AdventOfCode.Days
 {
     public class DayFive : DayBase
     {
-        private static readonly char[] Vowels = { 'a', 'e', 'i', 'o', 'u' };
-        private static readonly string[] Banned = { "ab", "cd", "pq", "xy" };
+        private static readonly char[] Vowels = {'a', 'e', 'i', 'o', 'u'};
+        private static readonly string[] Banned = {"ab", "cd", "pq", "xy"};
 
         public override void Run()
         {
@@ -19,8 +16,8 @@ namespace AdventOfCode.Days
 
             foreach (var line in lines)
             {
-                if (PartOne(line)) niceStringsA++;
-                if (PartTwo(line)) niceStringsB++;
+                if (PartOne(line)) { niceStringsA++; }
+                if (PartTwo(line)) { niceStringsB++; }
             }
 
             Console.WriteLine("[Part A] Nice Strings: " + niceStringsA);
@@ -35,7 +32,7 @@ namespace AdventOfCode.Days
 
             if (Vowels.Contains(line[0])) { vowelCount++; }
 
-            for (int i = 1; i < line.Length; i++)
+            for (var i = 1; i < line.Length; i++)
             {
                 var prevChar = line[i - 1];
                 var thisChar = line[i];
@@ -50,7 +47,7 @@ namespace AdventOfCode.Days
                     doubleLetter = true;
                 }
 
-                if (Banned.Contains(new string(new [] {prevChar, thisChar})))
+                if (Banned.Contains(new string(new[] {prevChar, thisChar})))
                 {
                     noBanned = false;
                     break;
@@ -62,10 +59,10 @@ namespace AdventOfCode.Days
 
         private static bool PartTwo(string line)
         {
-            bool pairOfTwo = false;
-            bool twoSameWithOneOffset = false;
+            var pairOfTwo = false;
+            var twoSameWithOneOffset = false;
 
-            for (int i = 0; i < line.Length - 3; i++)
+            for (var i = 0; i < line.Length - 3; i++)
             {
                 var partA = line.Substring(i, 2);
                 var partB = line.Substring(i + 2, line.Length - (2 + i));
@@ -77,7 +74,7 @@ namespace AdventOfCode.Days
                 }
             }
 
-            for (int i = 2; i < line.Length; i++)
+            for (var i = 2; i < line.Length; i++)
             {
                 var prevChar = line[i - 2];
                 var thisChar = line[i];
