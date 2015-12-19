@@ -10,11 +10,10 @@ namespace AdventOfCode.Days
 
         public override void Run()
         {
-            var lines = this.InputFile.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
             var niceStringsA = 0;
             var niceStringsB = 0;
 
-            foreach (var line in lines)
+            foreach (var line in this.InputFile)
             {
                 if (PartOne(line)) { niceStringsA++; }
                 if (PartTwo(line)) { niceStringsB++; }

@@ -6,7 +6,7 @@ namespace AdventOfCode.Days
     {
         public override void Run()
         {
-            var output = this.WhichFloor(this.InputFile);
+            var output = this.WhichFloor(this.InputFile[0]);
             Console.WriteLine("Santa reached basement at {0} instruction.\nbut finally end up on {1} floor", output.Item1, output.Item2);
         }
 

@@ -9,7 +9,7 @@ namespace AdventOfCode.Days
     {
         public override void Run()
         {
-            var presents = File.ReadLines(@"Advent of Code\\Inputs\\DayTwo.txt").Select(dim => new Present(dim)).ToList();
+            var presents = this.InputFile.Select(dim => new Present(dim)).ToList();
 
             var allSurface = presents.Sum(present => present.GetPresentSurface());
             var allRibbon = presents.Sum(present => present.GetRibbonLength());

@@ -14,7 +14,8 @@ namespace AdventOfCode
             // codeDay = new DayThree();
             // codeDay = new DayFour();
             // codeDay = new DayFive();
-            codeDay = new DaySix();
+            // codeDay = new DaySix();
+            codeDay = new DaySeven();
 
             codeDay.Run();
             Console.ReadLine();

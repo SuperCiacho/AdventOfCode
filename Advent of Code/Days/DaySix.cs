@@ -25,7 +25,7 @@ namespace AdventOfCode.Days
 
         public override void Run()
         {
-            foreach (var instruction in this.InputFile.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries).Select(Instruction.Parse))
+            foreach (var instruction in this.InputFile.Select(Instruction.Parse))
             {
                 for (var i = instruction.StartLocation.X; i <= instruction.EndLocation.X; i++)
                 {

@@ -20,14 +20,15 @@ namespace AdventOfCode.Days
             var startLocation = new Location(0, 0);
             var santaPosition = startLocation;
             var roboSantaPosition = startLocation;
+            var input = this.InputFile[0];
 
-            for (var index = 0; index < this.InputFile.Length; index++)
+            for (var index = 0; index < input.Length; index++)
             {
-                santaPosition = this.PresentDelivery(santaPosition, this.InputFile[index]);
+                santaPosition = this.PresentDelivery(santaPosition, input[index]);
 
                 if (this.santaAlone) { continue; }
 
-                roboSantaPosition = this.PresentDelivery(roboSantaPosition, this.InputFile[++index]);
+                roboSantaPosition = this.PresentDelivery(roboSantaPosition, input[++index]);
             }
 
             Console.WriteLine(this.map.Values.Count(h => h.VisitCount > 0));
