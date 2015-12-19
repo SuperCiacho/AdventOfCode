@@ -25,7 +25,7 @@ namespace AdventOfCode.Days
 
         public override void Run()
         {
-            foreach (var instruction in this.InputFile.Split(new char[1] {'\n'}, StringSplitOptions.RemoveEmptyEntries).Select(Instruction.Parse))
+            foreach (var instruction in this.InputFile.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries).Select(Instruction.Parse))
             {
                 for (var i = instruction.StartLocation.X; i <= instruction.EndLocation.X; i++)
                 {
@@ -36,7 +36,9 @@ namespace AdventOfCode.Days
                     }
                 }
             }
-            Console.WriteLine(this.grid.SelectMany(x => x).Count(l => l.IsLit));
+
+            Console.WriteLine("Number of litted lights: " + this.grid.SelectMany(x => x).Count(l => l.IsLit));
+            Console.WriteLine($"Brightness: { this.grid.SelectMany(x => x).Sum(l => l.Brightness)}");
         }
 
         private class Instruction
@@ -54,14 +56,22 @@ namespace AdventOfCode.Days
                 if (parts.Length == 4)
                 {
                     instruction.Action = l => l.Toggle();
+                    instruction.Action += l => l.Brightness = l.Brightness + 2;
                     instruction.StartLocation = Location.Parse(parts[1]);
                     instruction.EndLocation = Location.Parse(parts[3]);
                 }
                 else
                 {
-                    if (parts[1] == "on") { instruction.Action = l => l.IsLit = true; }
+                    if (parts[1] == "on")
+                    {
+                        instruction.Action = l => l.IsLit = true;
+                        instruction.Action += l => ++l.Brightness;
+                    }
                     else
-                    { instruction.Action = l => l.IsLit = false; }
+                    {
+                        instruction.Action = l => l.IsLit = false;
+                        instruction.Action += l => l.Brightness = l.Brightness == 0 ? 0 : --l.Brightness;
+                    }
 
                     instruction.StartLocation = Location.Parse(parts[2]);
                     instruction.EndLocation = Location.Parse(parts[4]);
@@ -82,6 +92,8 @@ namespace AdventOfCode.Days
             public int X { get; }
             public int Y { get; }
             public bool IsLit { get; set; }
+
+            public int Brightness { get; set; }
 
             #region Implementation of IComparable<in Location>
 
