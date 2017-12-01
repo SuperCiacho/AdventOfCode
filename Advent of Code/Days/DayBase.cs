@@ -5,13 +5,14 @@ namespace AdventOfCode.Days
     public abstract class DayBase : IRunner
     {
         protected string[] InputFile;
+        protected string InputFilePath;
 
         protected DayBase(bool isInputAvailable = true)
         {
             if (isInputAvailable)
             {
-                var path = $"Inputs\\{this.GetType().Name}.txt";
-                this.InputFile = File.ReadAllLines(path);
+                this.InputFilePath = $"Inputs\\{this.GetType().Name}.txt";
+                this.InputFile = File.ReadAllLines(this.InputFilePath);
             }
         }
 

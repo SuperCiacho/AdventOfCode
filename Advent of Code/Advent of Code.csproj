@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DayRunner.cs" />
     <Compile Include="Days\DayBase.cs" />
+    <Compile Include="Days\DayEight.cs" />
     <Compile Include="Days\DayFive.cs" />
     <Compile Include="Days\DayFour.cs" />
+    <Compile Include="Days\DayNine.cs" />
     <Compile Include="Days\DayOne.cs" />
     <Compile Include="Days\DaySeven.cs" />
     <Compile Include="Days\DaySix.cs" />
@@ -59,7 +62,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inputs\DayEight.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Inputs\DayFive.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\DayNine.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\DayOne.txt">

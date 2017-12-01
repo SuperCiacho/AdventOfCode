@@ -9,10 +9,10 @@ namespace AdventOfCode.Days
         private readonly bool santaAlone;
         private readonly Dictionary<Location, House> map;
 
-        public DayThree(bool isSantaAlone = true)
+        public DayThree()
         {
             this.map = new Dictionary<Location, House>();
-            this.santaAlone = isSantaAlone;
+            this.santaAlone = true;
         }
 
         public override void Run()
